@@ -1,0 +1,55 @@
+
+.card {
+  border: none;
+  border-radius: 10px;
+}
+
+.card-img-top {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-category {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.card a.btn {
+  margin-top: 1rem;
+}
+
+.btn-acervo-primary {
+  text-align: center;  /* Centraliza o texto horizontalmente */
+  padding: 10px 20px;  /* Ajusta o espaçamento interno do botão */
+  display: inline-block;
+  background-color: #009F9F;
+  border: 1px solid #fff;
+  transition: background-color .5s;
+}
+.btn-acervo-primary:hover {
+  background-color: #fff;
+  color: #009F9F;
+}
+
+.content-acervo {
+  flex: 1;
+  margin-left: 0;
+  padding: 20px;
+  transition: margin-left 0.3s ease;
+  margin-top: 80px; 
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 80px);
+}
+
+

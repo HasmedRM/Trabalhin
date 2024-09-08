@@ -1,0 +1,129 @@
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin-bottom: 20px;
+} */
+
+/* .container-livro {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    
+} */
+
+.book-details {
+    display: flex;
+    margin-bottom: 20px;
+}
+.book-cover {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    margin-right: 20px;
+}
+.details {
+    flex: 1;
+}
+.h1-livro {
+    font-size: 24px;
+    margin: 0 0 10px;
+}
+.h2-livro {
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: #777;
+}
+.p-livro {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+.download-button {
+    border: none;
+    background: #009F9F;
+    padding: 7px;
+    border-radius: 15px;
+    color: var(--color-light-50);
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    
+}
+.download-button:hover {
+    background-color: #fff;
+    border: 1px solid #009F9F;
+    color: #009F9F;
+    text-decoration: none;
+}
+.comments-section {
+    margin-top: 20px;
+}
+.comments-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.comment {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+.comment h4 {
+    font-size: 16px;
+    margin: 0 0 5px;
+    color: #555;
+}
+.comment p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.comment p {
+    font-size: 14px;
+    margin: 0;
+}
+.comment-form {
+    margin-top: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    margin-bottom: 10px;
+    resize: none;
+}
+.comment-form button {
+    border: none;
+    background: #009F9F;
+    padding: 7px;
+    border-radius: 15px;
+    color: var(--color-light-50);
+    font-weight: bold;
+    font-size: 18px;
+    cursor: pointer;
+}
+.comment-form button:hover {
+    background-color: #fff;
+    border: 1px solid #009F9F;
+    color: #009F9F;
+}
