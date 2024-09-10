@@ -35,11 +35,15 @@ header .logo img {
 
 header .search-bar form {
   display: flex;
-  
+  align-items: center;  /* aqui */
 }
 
 header .search-bar input {
   width: 200px;
+}
+
+header .search-bar button {  
+  margin-bottom: 15px;  /* aqui */
 }
 
 .sidebar {
@@ -101,4 +105,54 @@ footer {
   color: white;
 }
 
+#toggleButton .fa-bars {
+  filter: brightness(0) invert(1);
+  width: 20px; height: 20px;
+  transform: scale(1.3); 
+}
 
+#toggleButton:hover .fa-bars {
+  filter: brightness(1) invert(0);
+}
+
+#toggleButton {
+  color: #f8f9fa; 
+  background-color: transparent; 
+  padding: 13px;
+  margin: 10px;
+}
+
+#toggleButton:hover {
+  background-color: #f8f9fa; 
+  color: #212529; 
+
+}
+
+.texto-div {
+  display: flex;             
+  align-items: center;        
+  gap: 20px;               
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 1200px;        
+  margin: 0 auto;
+}
+
+.texto1 {
+  font-family: Arial, sans-serif;
+  font-size: 18px;              
+  font-weight: bold;         
+  color: #333;
+  line-height: 1.5;
+  flex: 1;                      
+  min-width: 300px;          
+}
+
+.texto2 {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  flex: 1;                    
+  min-width: 300px;             
+}

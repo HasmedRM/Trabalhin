@@ -19,11 +19,11 @@ function Acervo() {
         <div className="d-flex align-items-center col-1">
           <button 
             type="button" 
-            className="btn btn-outline-light btn-lg me-3 p-1" 
+            className="btn" 
             id="toggleButton" 
             onClick={toggleSidebar}
           >
-            <FontAwesomeIcon icon={faBars} size="4x" />
+            <FontAwesomeIcon icon={faBars} size="3x" />
           </button>
           <div className="logo">
             <img 

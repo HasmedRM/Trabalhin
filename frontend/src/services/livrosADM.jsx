@@ -4,12 +4,10 @@ import './css/livroADM.css';
 
 const CadastroLivro = () => {
   const [formData, setFormData] = useState({
-    codigo: '',
-    titulo: '',
-    editora: '',
-    classificacao: '',
-    dataCadastro: '',
-    arquivo: null,
+    title: '',
+    author: '',
+    pdf: null,
+    cover_image: null,
   });
 
   const handleChange = (e) => {
@@ -20,28 +18,40 @@ const CadastroLivro = () => {
     });
   };
 
+  // const handleFileChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     pdf: e.target.file[0],
+  //     cover_image: e.target.file,
+  //   });
+  // };
   const handleFileChange = (e) => {
-    setFormData({
-      ...formData,
-      arquivo: e.target.files[0],
-    });
+    const { name, files } = e.target;
+
+    // Verifica se arquivos estão presentes e processa conforme o nome
+    if (files && files.length > 0) {
+      setFormData({
+        ...formData,
+        [name]: files[0],
+      });
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const data = new FormData();
-    data.append('codigo', formData.codigo);
-    data.append('titulo', formData.titulo);
-    data.append('editora', formData.editora);
-    data.append('classificacao', formData.classificacao);
-    data.append('dataCadastro', formData.dataCadastro);
-    if (formData.arquivo) {
-      data.append('arquivo', formData.arquivo);
+    data.append('title', formData.title);
+    data.append('author', formData.author);
+    if (formData.pdf) {
+      data.append('pdf', formData.pdf);
+    } 
+    if (formData.cover_image) {
+      data.append('cover_image', formData.cover_image);
     }
 
     try {
-      const response = await axios.post('https://sua-api.com/api/cadastro-livros', data, {
+      const response = await axios.post('http://127.0.0.1:8000/api/books', data, {
         headers: {
           'Content-Type': 'multipart/form-data', // Cabeçalho para envio de arquivos
         },
@@ -59,55 +69,45 @@ const CadastroLivro = () => {
     <div className="form-container">
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="form-group">
-          <label htmlFor="codigo">Código do Livro</label>
-          <input
-            type="text"
-            id="codigo"
-            name="codigo"
-            value={formData.codigo}
-            onChange={handleChange}
-            required
-          />
-        </div>
-
-        <div className="form-group">
           <label htmlFor="titulo">Título do Livro</label>
           <input
             type="text"
-            id="titulo"
-            name="titulo"
-            value={formData.titulo}
+            id="title"
+            name="title"
+            value={formData.title}
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="editora">Editora</label>
+          <label htmlFor="author">Autor</label>
           <input
             type="text"
-            id="editora"
-            name="editora"
-            value={formData.editora}
-            onChange={handleChange}
-          />
-          <label htmlFor="classificacao">Categoria</label>
-          <input
-            type="text"
-            id="classificacao"
-            name="classificacao"
-            value={formData.classificacao}
+            id="author"
+            name="author"
+            value={formData.author}
             onChange={handleChange}
             required
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="arquivo">Carregar Arquivo</label>
+          <label htmlFor="pdf">Carregar Arquivo</label>
           <input
             type="file"
-            id="arquivo"
-            name="arquivo"
+            id="pdf"
+            name="pdf"
+            onChange={handleFileChange}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="cover_image">Carregar Capa</label>
+          <input
+            type="file"
+            id="cover_image"
+            name="cover_image"
             onChange={handleFileChange}
           />
         </div>

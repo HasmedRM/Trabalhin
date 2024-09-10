@@ -4,34 +4,30 @@ import axios from "axios";
 import "./css/cadastro.css";
 
 const Cadastro = () => {
-  const [formData, setFormData] = useState({
-    nome: "",
-    email: "",
-    senha: "",
-  });
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const navigate = useNavigate(); // Inicializar o hook useNavigate
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.nome || !formData.email || !formData.senha) {
+    if (!name || !email || !password) {
       alert("Por favor, preencha todos os campos!");
       return;
     }
 
     try {
-      const response = await axios.post("https://seu-servidor.com/api/cadastro", formData);
+      const response = await axios.post("http://127.0.0.1:8000/api/register", {
+          name,
+          email,
+          password
+      });
       console.log(response.data);
       alert("Cadastro realizado com sucesso!");
+      navigate('/login')
     } catch (error) {
       console.error("Erro ao enviar os dados: ", error);
       alert("Houve um problema com o cadastro.");
@@ -71,8 +67,8 @@ const Cadastro = () => {
                   type="text"
                   name="nome"
                   placeholder="Nome"
-                  value={formData.nome}
-                  onChange={handleChange}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   required
                 />
               </label>
@@ -83,8 +79,8 @@ const Cadastro = () => {
                   type="email"
                   name="email"
                   placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
               </label>
@@ -95,8 +91,8 @@ const Cadastro = () => {
                   type="password"
                   name="senha"
                   placeholder="Senha"
-                  value={formData.senha}
-                  onChange={handleChange}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
               </label>

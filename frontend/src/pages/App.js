@@ -7,6 +7,7 @@ import Configuracoes from '../services/config';
 import Acervo from '../services/acervo';
 import RecoverPassword from '../services/recuperar';
 import BookDetails from '../services/Livro';
+import CadastroLivro from '../services/livrosADM';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/acervo" element={<Acervo />} /> 
         <Route path="/recuperar-senha" element={<RecoverPassword />} />
         <Route path="/livro/:id" element={<BookDetails />} />
+        <Route path="/apilivro" element={<CadastroLivro />} />
         {/* Adicione outras rotas conforme necessário */}
       </Routes>
     </Router>

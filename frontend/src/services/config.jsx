@@ -17,8 +17,8 @@ function Configuracoes() {
     <div>
       <header className=" text-white d-flex justify-content-between align-items-center py-3 px-4">
       <div className="d-flex align-items-center col-1">
-        <button type="button" className="btn btn-outline-light btn-lg me-3 p-1" id="toggleButton" onClick={toggleSidebar}>
-        <FontAwesomeIcon icon={faBars} size="4x" />
+        <button type="button" className="btn" id="toggleButton" onClick={toggleSidebar}>
+        <FontAwesomeIcon icon={faBars} size="3x" />
         </button>
           <div className="logo">
             <img src="https://cdn.discordapp.com/attachments/1216857927747371061/1282115038949408790/lw-logo.png?ex=66de2e2d&is=66dcdcad&hm=1a695010346ed6efa40e3ea4891e9996a4ee24a5cfa90d8008a6c4c271270678&"

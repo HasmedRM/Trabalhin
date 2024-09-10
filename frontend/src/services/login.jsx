@@ -4,27 +4,32 @@ import axios from 'axios';
 import './css/login.css';
 
 const Login = () => {
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate(); 
 
-  const handleSubmit = (e) => {
-    e.preventDefault(); 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const loginData = { name, email, password };
-    const apiUrl = process.env.REACT_APP_API_URL; 
+    if (!email || !password) {
+      alert("Por favor, preencha todos os campos!");
+      return;
+    }
 
-    axios.post(`${apiUrl}/auth/login`, loginData)
-      .then((response) => {
-        console.log('Login bem-sucedido:', response.data);
-        alert('Login bem-sucedido!');
-        navigate('/dashboard');
-      })
-      .catch((error) => {
-        console.error('Erro ao realizar o login:', error);
-        alert('Erro ao realizar o login. Verifique as informações e tente novamente.');
+    try {
+      const response = await axios.post("http://127.0.0.1:8000/api/auth/login", {
+          email,
+          password
       });
+      console.log(response.data);
+      alert("Login realizado com sucesso!");
+      navigate('/');
+    } catch (error) {
+      console.error("Erro ao enviar os dados: ", error);
+      alert("Houve um problema com o login.");
+    }
   };
 
   return (
@@ -35,19 +40,6 @@ const Login = () => {
         </div>
 
         <div id="inputs">
-          <div className="input-box">
-            <label htmlFor="name">Nome</label>
-            <div className="input-field">
-              <i className="far fa-user icon-modify"></i>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-          </div>
 
           <div className="input-box">
             <label htmlFor="email">E-mail</label>
